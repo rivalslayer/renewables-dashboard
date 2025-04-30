@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Avathon Renewables</title>
+    <link rel="icon" href="assets/img/favicon.png">
+  </head>
+
+  <body>
+    <div>
+    <a class="navbar-brand mr-0" href="./index.html">
+      <img class="logo-dark" src="assets/img/avathon_logo.png" style="max-width:180px;max-height:40px;display: block;margin-left: auto;margin-right: auto;" alt="logo">
+    </a>
+    </div>
+
+    <div style="font-family:calibri;">
+      <h2>Welcome to Avathon Full Stack Coding Challenge!!</h2>
+      <p>Avathon Renewable Suite is a predictive analytics and asset management platform for renewable energy. You can learn more about it at <a href="https://avathon.com/industries/energy/renewables/" target="_blank">https://avathon.com/industries/energy/renewables/</a>. Our platform gets large volumes of live data from turbines from multiple windfarms which needs to be displayed in user friendly format for analysis by field technicians. Your goal is to primarly use React along with any other open-source or free library as you see fit (we use ag-grid and highcharts) to build a single page dashboard/analytics application to display the attached sample data.</p>
+      <p>
+        The challenge folder contains <a href="./device.json" target="_blank">device.json</a> file that has list of devices across two windfarms named Mineapollis and Colorado.
+        There is another file <a href="./fault.json" target="_blank">fault.json</a> that contains the details of fault events that have happened over time across these devices. Your goal is to display this information in charts and table as follows:
+        <ul>
+        	<li><b>Page Level Filter - </b> Dropdown to select between Mineapollis and Colorado Windfarms</li>
+        	<li><b>Additional Filters - </b> Additional filters for users to select specific Device Name, Time Range, Fault Type, Code </li>
+        	<li><b>Tiles - </b> Show critical information like count, duration etc of filtered alarms</li>
+          <li><b>Top 10 Alarms Codes (Duration)  - </b> Bar Chart to show top 10 alarms codes by Duration</li>
+          <li><b>Top 10 Alarms Codes (Frequency) - </b> Bar Chart to show top 10 alarms codes by Frequency</li>
+          <li><b>Alarms by Category  (Duration)  - </b> Pie Chart to show the Alarm Duration grouped by Category</li>
+          <li><b>Alarms by Category  (Frequency) - </b> Pie Chart to show the Alarm Duration grouped by Category</li>
+          
+          <li><b>Display data in a table - </b> Show all entries in a user friendly table and to allow for sorting and filtering by date, duration, alarm code, description etc.</li>
+        </ul>
+        <b>Bonus:</b> Add page level filter to filter charts for each turbine; Add heat maps for Top 10 alarms and you can containerize the app if you want to go above and beyond!
+      </p>
+
+      <p>
+        If applying for senior roles or with experience please ensure proper code structure, documentation, test automation and any additional elements that will showcase your architecture capabilties.
+      </p>
+
+      <p>
+        There are no right or wrong answers here but what matters is user experience when they view the large amounts of information. We have attached a sample mockup image as inspiration. This is just for reference and not something we expect as is. 
+        We would love to see something even more awesome and better for users. Add a readme if you wish to share any additional information or steps to run the application, notes etc. If requirements seem unclear then document your assumptions. Notes on your design choices will help us understand your thought process.
+      </p>
+
+      <p>
+      	This data is confidential so refrain from posting on public repositories.
+      </p>
+
+    </div>
+  </body>
+</html>
