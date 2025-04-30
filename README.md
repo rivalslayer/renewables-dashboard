@@ -2,7 +2,7 @@
 
 A React-based dashboard application for monitoring and analyzing renewable energy data from wind farms. This application provides visualization and analysis of turbine data and fault events across Minneapolis and Colorado wind farms.
 
-![Dashboard UI](public/images/UI.png)
+![Dashboard UI](./public/images/UI.png)
 
 ## Key Features
 
