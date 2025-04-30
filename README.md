@@ -27,28 +27,6 @@ A React-based dashboard application for monitoring and analyzing renewable energ
   - Pagination
   - Tooltips for long descriptions
 
-## Critical Solution Components
-
-### 1. Data Management
-- Centralized state management using React Context
-- Efficient data filtering and aggregation
-- Memoized calculations for performance optimization
-- Device lookup optimization using Map
-
-### 2. Visualization Architecture
-- Dual-view charts (Bar and Pie) for each metric
-- Responsive design with Material-UI Grid system
-- Interactive tooltips and legends
-- Color-coded categories for easy identification
-- Summary tiles with key metrics
-
-### 3. Performance Optimizations
-- Memoized data transformations
-- Efficient device lookup using Map
-- Optimized re-renders using React.memo
-- Responsive container sizing
-- Paginated data table for large datasets
-
 ## Tech Stack
 
 - **Frontend Framework**: React 18
@@ -74,6 +52,28 @@ src/
 ├── context/           # React context for state management
 └── types/            # TypeScript type definitions
 ```
+
+## Critical Solution Components
+
+### 1. Data Management
+- Centralized state management using React Context
+- Efficient data filtering and aggregation
+- Memoized calculations for performance optimization
+- Device lookup optimization using Map
+
+### 2. Visualization Architecture
+- Dual-view charts (Bar and Pie) for each metric
+- Responsive design with Material-UI Grid system
+- Interactive tooltips and legends
+- Color-coded categories for easy identification
+- Summary tiles with key metrics
+
+### 3. Performance Optimizations
+- Memoized data transformations
+- Efficient device lookup using Map
+- Optimized re-renders using React.memo
+- Responsive container sizing
+- Paginated data table for large datasets
 
 ## Getting Started
 
