@@ -1,24 +1,51 @@
 # Avathon Dashboard
 
-A React-based dashboard application for monitoring and analyzing renewable energy data from wind farms. This application provides real-time visualization and analysis of turbine data and fault events across multiple wind farms.
+A React-based dashboard application for monitoring and analyzing renewable energy data from wind farms. This application provides visualization and analysis of turbine data and fault events across Minneapolis and Colorado wind farms.
 
-## Features
+## Key Features
 
-- Wind farm selection between Minneapolis and Colorado
-- Advanced filtering capabilities for:
+- **Wind Farm Selection**: Toggle between Minneapolis and Colorado wind farms
+- **Advanced Filtering**:
   - Device Name
-  - Time Range
-  - Fault Type
-  - Fault Code
-- Summary tiles showing critical alarm metrics
-- Data visualization:
-  - Top 10 Alarms by Duration (Bar Chart)
-  - Top 10 Alarms by Frequency (Bar Chart)
-  - Alarms by Category - Duration (Pie Chart)
-  - Alarms by Category - Frequency (Pie Chart)
-- Interactive data table with sorting and filtering capabilities
-- Heat maps for Top 10 alarms (Bonus feature)
-- Individual turbine filtering (Bonus feature)
+- **Summary Tiles**:
+  - Total Alarm Duration
+  - Total Count of Alarms
+  - Device with Maximum Duration Alarm
+  - Maximum Duration Alarm Time
+- **Data Visualization**:
+  - Bar Charts:
+    - Top Alarms by Duration
+    - Top Alarms by Frequency
+  - Pie Charts:
+    - Alarms by Category (Duration)
+    - Alarms by Category (Frequency)
+- **Interactive Data Table**:
+  - Sortable columns (Start Time, Resolution Time, Category, Alarm Code)
+  - Global search functionality
+  - Pagination
+  - Tooltips for long descriptions
+
+## Critical Solution Components
+
+### 1. Data Management
+- Centralized state management using React Context
+- Efficient data filtering and aggregation
+- Memoized calculations for performance optimization
+- Device lookup optimization using Map
+
+### 2. Visualization Architecture
+- Dual-view charts (Bar and Pie) for each metric
+- Responsive design with Material-UI Grid system
+- Interactive tooltips and legends
+- Color-coded categories for easy identification
+- Summary tiles with key metrics
+
+### 3. Performance Optimizations
+- Memoized data transformations
+- Efficient device lookup using Map
+- Optimized re-renders using React.memo
+- Responsive container sizing
+- Paginated data table for large datasets
 
 ## Tech Stack
 
@@ -26,10 +53,25 @@ A React-based dashboard application for monitoring and analyzing renewable energ
 - **Language**: TypeScript
 - **UI Library**: Material-UI (MUI) v5
 - **Charting Libraries**: 
-  - Highcharts
   - Recharts
 - **Build Tool**: Vite
 - **Code Quality**: ESLint
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── dashboard/     # Main dashboard layout
+│   ├── filters/       # Wind farm and device filters
+│   ├── tiles/         # Summary statistics tiles
+│   ├── charts/        # Recharts visualizations
+│   ├── table/         # Interactive data table
+│   ├── tabs/          # Tab components
+│   └── layout/        # Layout components
+├── context/           # React context for state management
+└── types/            # TypeScript type definitions
+```
 
 ## Getting Started
 
@@ -72,41 +114,12 @@ npm run build
 yarn build
 ```
 
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── dashboard/     # Main dashboard layout
-│   ├── filters/       # Wind farm and alarm filters
-│   ├── tiles/         # Summary statistics tiles
-│   ├── charts/        # Highcharts and Recharts visualizations
-│   └── table/         # Interactive data table
-├── context/           # React context for state management
-├── assets/            # Static assets and images
-└── App.tsx            # Root component
-```
-
-## Data Sources
-
-The application processes two main data sources:
-- `device.json`: Contains device information across Minneapolis and Colorado wind farms
-- `fault.json`: Contains detailed fault events and their metrics
-
 ## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Create production build
 - `npm run lint` - Run ESLint
 - `npm run preview` - Preview production build
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
@@ -115,5 +128,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Material-UI for the component library
-- Highcharts and Recharts for data visualization
+- Recharts for data visualization
 - Vite for the build tool
