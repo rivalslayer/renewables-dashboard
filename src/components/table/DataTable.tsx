@@ -61,18 +61,24 @@ const formatDuration = (durationSeconds: number) => {
   try {
     // Validate input
     if (typeof durationSeconds !== 'number' || isNaN(durationSeconds) || durationSeconds <= 0) {
-      return '0h 0m 0s';
+      return '0h 0m 0.00s';
     }
 
     const hours = Math.floor(durationSeconds / 3600);
     const minutes = Math.floor((durationSeconds % 3600) / 60);
-    const seconds = Math.floor(durationSeconds % 60);
+    const seconds = durationSeconds % 60;
     
     // Only show non-zero values
     const parts = [];
     if (hours > 0) parts.push(`${hours}h`);
     if (minutes > 0) parts.push(`${minutes}m`);
-    if (seconds > 0 || parts.length === 0) parts.push(`${seconds}s`);
+    
+    // Show seconds with decimals if total duration is less than 60 seconds
+    if (durationSeconds < 60) {
+      parts.push(`${seconds.toFixed(2)}s`);
+    } else if (seconds > 0 || parts.length === 0) {
+      parts.push(`${Math.floor(seconds)}s`);
+    }
     
     return parts.join(' ');
   } catch (error) {
