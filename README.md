@@ -8,7 +8,11 @@ A React-based dashboard application for monitoring and analyzing renewable energ
 
 - **Wind Farm Selection**: Toggle between Minneapolis and Colorado wind farms
 - **Advanced Filtering**:
-  - Device Name
+  - Location (Wind Farm) - Filter alarms by wind farm location
+  - Device (Turbine) - Filter alarms by specific turbine (dependent on location)
+  - Time Range - Filter alarms by time period (24h, 7d, 30d)
+  - Fault Category - Filter alarms by fault category
+  - Alarm Code - Filter alarms by specific alarm code
 - **Summary Tiles**:
   - Total Alarm Duration
   - Total Count of Alarms
@@ -53,27 +57,82 @@ src/
 └── types/            # TypeScript type definitions
 ```
 
-## Critical Solution Components
+## Critical Files and Their Roles
 
-### 1. Data Management
-- Centralized state management using React Context
-- Efficient data filtering and aggregation
-- Memoized calculations for performance optimization
-- Device lookup optimization using Map
+### 1. State Management
+- **`src/context/AppContext.tsx`**
+  - Centralized state management using React Context
+  - Manages alarms, devices, and filter states
+  - Handles data loading and error states
+  - Provides global state access to all components
 
-### 2. Visualization Architecture
-- Dual-view charts (Bar and Pie) for each metric
-- Responsive design with Material-UI Grid system
-- Interactive tooltips and legends
-- Color-coded categories for easy identification
-- Summary tiles with key metrics
+### 2. Data Processing and Display
+- **`src/components/table/DataTable.tsx`**
+  - Implements data filtering and sorting
+  - Handles pagination and search functionality
+  - Manages table state and interactions
+  - Optimizes performance with memoization
+
+### 3. Data Visualization
+- **`src/components/charts/Charts.tsx`**
+  - Implements data visualization using Recharts
+  - Handles chart data processing and filtering
+  - Manages chart state and interactions
+  - Provides multiple chart views (Bar, Pie)
+
+### 4. Summary Statistics
+- **`src/components/tiles/Tiles.tsx`**
+  - Displays key metrics and statistics
+  - Implements data aggregation
+  - Shows real-time statistics
+  - Updates dynamically with filters
+
+### 5. User Controls
+- **`src/components/filters/Filters.tsx`**
+  - Manages filter controls and user interactions
+  - Updates global filter state
+  - Provides location and device selection
+  - Handles filter dependencies
+
+### 6. Type Definitions
+- **`src/types/data.ts`**
+  - Defines TypeScript interfaces and types
+  - Ensures type safety across the application
+  - Documents data models
+  - Guides component development
+
+### 7. Main Layout
+- **`src/components/dashboard/Dashboard.tsx`**
+  - Manages overall application layout
+  - Handles loading and error states
+  - Coordinates component placement
+  - Provides responsive design
+
+## Data Flow and Processing
+
+### 1. Data Loading
+- Initial data loaded from JSON files
+- Stored in AppContext
+- Available globally to all components
+
+### 2. Filtering Pipeline
+```
+Raw Data → Device Lookup → Location Filter → Device Filter → 
+Time Filter → Fault Type Filter → Alarm Code Filter → 
+Text Search → Sorting → Pagination
+```
 
 ### 3. Performance Optimizations
-- Memoized data transformations
+- Memoization of computed values
 - Efficient device lookup using Map
 - Optimized re-renders using React.memo
-- Responsive container sizing
 - Paginated data table for large datasets
+
+### 4. Error Handling
+- Input validation
+- Null checks for device lookups
+- Date parsing error handling
+- Type safety with TypeScript
 
 ## Getting Started
 
@@ -118,27 +177,23 @@ firebase login
 ```bash
 firebase init
 ```
-   - Select "Hosting" when prompted
-   - Choose your Firebase project
-   - Set the public directory as `dist`
-   - Configure as a single-page app
-   - Don't overwrite existing `index.html`
 
-4. Build the application:
-```bash
-npm run build
-```
-
-5. Deploy to Firebase:
+4. Deploy the application:
 ```bash
 firebase deploy
 ```
 
-The application will be available at: https://renewables-dashboard.web.app
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
