@@ -6,7 +6,7 @@ import Charts from '../charts/Charts';
 import DataTable from '../table/DataTable';
 import { useAppContext } from '../../context/AppContext';
 
-const Dashboard: React.FC = () => {
+export const Dashboard: React.FC = () => {
   const { loading, error } = useAppContext();
 
   if (loading) {
@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
         }}>
           <Box
             component="img"
-            src="/src/assets/img/avathon_logo.png"
+            src="/assets/img/avathon_logo.png"
             alt="Avathon Logo"
             sx={{ height: 40, mr: 2 }}
           />

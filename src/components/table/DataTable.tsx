@@ -17,7 +17,6 @@ import {
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { useAppContext } from '../../context/AppContext';
-import { Alarm } from '../../types/data';
 
 type SortableField = 'time_stamp' | 'resolution_time_stamp' | 'category' | 'code';
 type ColumnId = SortableField | 'device' | 'duration' | 'description';
@@ -166,7 +165,7 @@ const DataTable: React.FC = () => {
     setOrderBy(property);
   };
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (_: unknown, newPage: number) => {
     setPage(newPage);
   };
 

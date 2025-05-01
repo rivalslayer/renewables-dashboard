@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, FormControl, InputLabel, Select, MenuItem, Typography, SelectChangeEvent } from '@mui/material';
+import { Box, FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import { useAppContext } from '../../context/AppContext';
 
 const Filters: React.FC = () => {

@@ -86,36 +86,55 @@ src/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/avathon-dashboard.git
-cd avathon-dashboard
+git clone https://github.com/aakashcal/renewables-dashboard.git
+cd renewables-dashboard
 ```
 
 2. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. Start the development server:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be available at `http://localhost:5173`
+## Deployment
 
-### Building for Production
+The application is deployed using Firebase Hosting. To deploy:
 
-To create a production build:
+1. Install Firebase CLI:
+```bash
+npm install -g firebase-tools
+```
 
+2. Login to Firebase:
+```bash
+firebase login
+```
+
+3. Initialize Firebase in the project:
+```bash
+firebase init
+```
+   - Select "Hosting" when prompted
+   - Choose your Firebase project
+   - Set the public directory as `dist`
+   - Configure as a single-page app
+   - Don't overwrite existing `index.html`
+
+4. Build the application:
 ```bash
 npm run build
-# or
-yarn build
 ```
 
+5. Deploy to Firebase:
+```bash
+firebase deploy
+```
+
+The application will be available at: https://renewables-dashboard.web.app
 
 ## License
 
