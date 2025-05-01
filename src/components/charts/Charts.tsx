@@ -24,8 +24,12 @@ const formatDuration = (value: number) => {
 };
 
 const formatDurationShort = (value: number) => {
-  const hours = Math.round(value / 3600 / 10) * 10; // Round to nearest 10 hours
-  return `${hours}h`;
+  const hours = value / 3600;
+  if (hours < 1) {
+    const minutes = Math.round((hours * 60) / 10) * 10; // Round to nearest 10 minutes
+    return `${minutes}m`;
+  }
+  return `${Math.round(hours)}h`;
 };
 
 const COLORS = [
